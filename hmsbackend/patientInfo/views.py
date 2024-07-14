@@ -1,10 +1,11 @@
 from rest_framework import generics
 from .models import PatientHealthRecord
 from .serializers import PatientHealthRecordSerializer
-from .connection import execute_raw_sql
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+
+from connection import execute_raw_sql
 
 
 
