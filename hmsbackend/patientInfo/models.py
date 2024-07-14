@@ -1,5 +1,8 @@
 from django.db import models
 
+
+
+
 class PatientHealthRecord(models.Model):
     blood_type = models.CharField(max_length=3)
     bmi = models.FloatField()
