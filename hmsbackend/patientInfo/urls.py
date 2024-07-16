@@ -1,9 +1,8 @@
 from django.urls import path
-from .views import PatientHealthRecordCreate, PatientHealthRecord, PatientHealthRecordByUser, create_or_update_health_record
+from .views import PatientHealthRecordCreate, PatientHealthRecordList, PatientHealthRecordByUser
 
 urlpatterns = [
-    path('patient/healtrecord/', PatientHealthRecordCreate.as_view(), name='hr-list-create'),
-    path('patient/healtrecord/all/', PatientHealthRecord.as_view(), name='hr-detail'),
-    path('healthrecord/<int:user_id>/', PatientHealthRecordByUser.as_view(), name='patient-health-record-by-user'),
-    path('healthrecord/create/', create_or_update_health_record, name='create-or-update-health-record'),
+    path('patient/healthrecord/create/', PatientHealthRecordCreate.as_view(), name='hr-list-create'),
+    path('patient/healthrecord/all/', PatientHealthRecordList.as_view(), name='hr-detail'),
+    path('patient/healthrecord/<int:user_id>/', PatientHealthRecordByUser.as_view(), name='patient-health-record-by-user')
 ]
