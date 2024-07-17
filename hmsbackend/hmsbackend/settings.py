@@ -181,3 +181,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 AUTH_USER_MODEL = 'authUser.HHMSUser'
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'
