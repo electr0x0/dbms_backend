@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from django.db import connection
 import json
 
 from .serializers import DoctorDetailSerializer
@@ -32,12 +31,13 @@ class DoctorUpdateView(View):
         try:
             data = json.loads(request.body)
             serializer = DoctorDetailSerializer(data=data)
+            print(serializer)
             if serializer.is_valid():
                 # Update doctor details
                 update_details_query = """
                 UPDATE doctor_doctordetails 
                 SET doctor_name = %s, department = %s, years_of_experience = %s, daily_hours = %s, room_number = %s
-                WHERE id = %s
+                WHERE doc_id_id = %s
                 """
                 execute_raw_sql(update_details_query, [
                     serializer.validated_data['doctor_name'],
@@ -64,3 +64,5 @@ class DoctorUpdateView(View):
                 return JsonResponse({'error': serializer.errors}, status=400)
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)

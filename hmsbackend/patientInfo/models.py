@@ -10,7 +10,7 @@ class PatientHealthRecord(models.Model):
     heart_rate = models.IntegerField()
     cholesterol_level = models.FloatField()
     sugar_level = models.FloatField()
-    p_user_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    p_user_id = models.ForeignKey('auth.User', on_delete=models.CASCADE,unique=True)
     
     def __str__(self):
         return f"Record {self.id} for User {self.p_user_id}"

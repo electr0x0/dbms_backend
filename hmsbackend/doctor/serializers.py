@@ -5,6 +5,6 @@ class DoctorDetailSerializer(serializers.Serializer):
     doctor_name = serializers.CharField()
     department = serializers.CharField()
     years_of_experience = serializers.IntegerField()
-    daily_hours = serializers.CharField()
-    room_number = serializers.CharField()
+    daily_hours = serializers.IntegerField()
+    room_number = serializers.IntegerField()
     specialization = serializers.CharField()

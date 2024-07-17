@@ -20,7 +20,6 @@ class PatientHealthRecord(generics.RetrieveUpdateDestroyAPIView):
     def get(self, request):
         query = "SELECT * FROM `patientInfo_patienthealthrecord` "  
         allPatients = execute_raw_sql(query)
-        print(allPatients)
         serialized_patients = PatientHealthRecordSerializer(allPatients, many=True)
         return Response(serialized_patients.data, status=status.HTTP_200_OK)
 

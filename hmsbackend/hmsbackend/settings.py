@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "patientInfo",
     'doctor',
+    'appointment',
+    'diet',
     "rest_framework",
     'corsheaders',
 ]
@@ -137,6 +139,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Allow all origins
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^http://localhost:3000$",
+]
 
 # Optionally, allow all methods if needed
 CORS_ALLOW_METHODS = [
